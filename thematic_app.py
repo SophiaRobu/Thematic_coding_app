@@ -13,7 +13,7 @@ def login():
         st.session_state.authenticated = False
 
     if not st.session_state.authenticated:
-        col1, col2, col3 = st.columns([2, 1, 2])
+        col1, col2, col3 = st.columns([3, 2, 3])
 
         with col2:
             st.markdown("### 🔐 Login Required")
