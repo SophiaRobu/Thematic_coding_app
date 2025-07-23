@@ -1,0 +1,7 @@
+streamlit
+pandas
+openpyxl
+bertopic
+umap-learn
+hdbscan
+nltk
