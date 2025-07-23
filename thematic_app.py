@@ -8,6 +8,32 @@ from hdbscan import HDBSCAN
 
 st.set_page_config(page_title="Thematic Coding Tool", layout="wide")
 
+def login():
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
+    if not st.session_state.authenticated:
+        col1, col2, col3 = st.columns([2, 1, 2])
+
+        with col2:
+            st.markdown("### 🔐 Login Required")
+            password = st.text_input("Password", type="password", label_visibility="collapsed", placeholder="Enter password")
+
+            if password == "Ech0istaTool1":
+                st.session_state.authenticated = True
+                st.rerun()  
+            elif password != "":
+                st.error("Incorrect password. Please try again.")
+            else:
+                st.info("Please enter the password to access the app.")
+
+    return st.session_state.authenticated
+
+# 🔐 Only run the rest of the app if authenticated
+if not login():
+    st.stop()
+
+
 st.title("🧠 Thematic Coding with Echo Research")
 st.write("Upload your Excel file and automatically assign themes using AI.")
 
