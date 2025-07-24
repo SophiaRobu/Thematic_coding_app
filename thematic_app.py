@@ -29,6 +29,7 @@ def login():
 
     return st.session_state.authenticated
 
+
 # 🔐 Only run the rest of the app if authenticated
 if not login():
     st.stop()
